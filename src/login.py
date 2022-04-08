@@ -37,6 +37,12 @@ class UserLogin:
                     "code": 409,
                     "message": "Email is not registered",
                 }]
+            if self.database.get(passedFields["email"]).get("password") != passedFields["password"]:
+                return [None, {
+                    "status": "error",
+                    "code": 403,
+                    "message": "Password is incorrect",
+                }]
             userData = self.database[passedFields["email"]]
             return [userData, {
                 "status": "success",
