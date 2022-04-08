@@ -6,7 +6,7 @@ from src.signup import UserSignup
 from src.login import UserLogin
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24)
+app.secret_key = "Testing1234"
 CORS(app)
 
 @app.route("/user/signup", methods=["POST"])
